@@ -7,6 +7,7 @@ import org.testng.annotations.*;
 import page_objects.LoginPage;
 
 public class LoginTests extends BaseTests {
+
     private LoginPage loginPage = new LoginPage();
 
     @BeforeMethod

@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class BasePage {
+
     //Locators
     private final By tabLogin = By.cssSelector("li a[href='/Account/Login.cshtml']");
 
