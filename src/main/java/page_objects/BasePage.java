@@ -17,7 +17,4 @@ public class BasePage {
     public void goToLoginTab() {
         getLoginTab().click();
     }
-
 }
-
-
