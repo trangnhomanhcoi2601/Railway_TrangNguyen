@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
-
     //Locators
     private By txtUsername = By.id("username");
     private By txtPassword = By.id("password");
@@ -38,5 +37,3 @@ public class LoginPage extends BasePage {
         getBtnLogin().click();
     }
 }
-
-
