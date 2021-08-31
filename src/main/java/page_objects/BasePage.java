@@ -17,8 +17,7 @@ public class BasePage {
     private WebElement getContactTab() { return DriverHelper.getDriver().findElement(tabContact);}
 
     //Methods
-    public void goToLoginTab() {
-        getLoginTab().click();
-    }
-    public void goToContactTab(){ getContactTab().click(); }
+    public void goToLoginPage() { getLoginTab().click();}
+
+    public void goToContactPage(){ getContactTab().click(); }
 }

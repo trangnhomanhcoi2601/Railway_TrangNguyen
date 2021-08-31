@@ -12,9 +12,7 @@ public class LoginTests extends BaseTests {
     private final String invalidPassword = "wrong password";
 
     @BeforeMethod
-    public void preCondition() {
-        loginPage.goToLoginTab();
-    }
+    public void preCondition() {loginPage.goToLoginPage();}
 
     @Test(description = "User can log into Railway with valid username and password")
     public void tc01_LoginWithValidData() {
