@@ -37,7 +37,7 @@ public class LoginTests extends BaseTests {
 
     @Test(description = "User cannot log into Railway with invalid password")
     public void tc03_LoginWithInvalidPassword() {
-        LogHelper.info("Enter invalid password");
+        LogHelper.info("Login with invalid password");
         loginPage.login(Constants.USER, invalidPassword);
 
         LogHelper.info("Check the error message");
