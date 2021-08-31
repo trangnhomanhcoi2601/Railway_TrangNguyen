@@ -9,6 +9,7 @@ import page_objects.LoginPage;
 public class LoginTests extends BaseTests {
 
     private LoginPage loginPage = new LoginPage();
+    private final String invalidPassword = "wrong password";
 
     @BeforeMethod
     public void preCondition() {
@@ -32,5 +33,14 @@ public class LoginTests extends BaseTests {
         LogHelper.info("Check error messages");
         Assert.assertEquals(loginPage.getErrorEmailMessage(), "You must specify a username.", "Error email message doesn't display correctly");
         Assert.assertEquals(loginPage.getErrorLoginMessage(), "There was a problem with your login and/or errors exist in your form.", "Error login message doesn't display correctly");
+    }
+
+    @Test(description = "User cannot log into Railway with invalid password")
+    public void tc03_LoginWithInvalidPassword() {
+        LogHelper.info("Enter invalid password");
+        loginPage.login(Constants.USER, invalidPassword);
+
+        LogHelper.info("Check the error message");
+        Assert.assertEquals(loginPage.getErrorLoginMessage(), "Invalid username or password. Please try again.", "Error login message doesn't display correctly");
     }
 }
