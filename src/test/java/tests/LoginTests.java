@@ -26,11 +26,11 @@ public class LoginTests extends BaseTests {
 
     @Test(description = "User can't login with blank 'Username' textbox")
     public void tc02_LoginWithBlankUsernameTextbox() {
-        LogHelper.info("Don't enter user name. enter valid information into 'Password' textbox");
+        LogHelper.info("Don't enter user name. Enter valid information into 'Password' textbox");
         loginPage.login("", Constants.PASSWORD);
 
         LogHelper.info("Check error messages");
         Assert.assertEquals(loginPage.getErrorEmailMessage(), "You must specify a username.", "Error email message doesn't display correctly");
-        Assert.assertEquals(loginPage.getErrorLoginMessage(), "There was a problem with your login and/or errors exist in your form.", "Error message doesn't display correctly");
+        Assert.assertEquals(loginPage.getErrorLoginMessage(), "There was a problem with your login and/or errors exist in your form.", "Error login message doesn't display correctly");
     }
 }
