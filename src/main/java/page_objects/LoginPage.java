@@ -11,6 +11,8 @@ public class LoginPage extends BasePage {
     private By txtPassword = By.id("password");
     private By btnLogin = By.cssSelector(".form-actions input[value='Login']");
     private By lblWelcomeUserMessage = By.xpath("//div[@id='banner']/div[@class='account']/strong");
+    private By lblErrorLoginMessage = By.cssSelector("div p[class='message error LoginForm']");
+    private By lblErrorEmailMessage = By.cssSelector(".username [class = 'validation-error']");
 
     //Elements
     private WebElement getTxtUsername() {
@@ -27,10 +29,18 @@ public class LoginPage extends BasePage {
 
     private WebElement getLblWelcomeUserMessage() { return DriverHelper.getDriver().findElement(lblWelcomeUserMessage);}
 
+    private WebElement getLblErrorLoginMessage() { return DriverHelper.getDriver().findElement(lblErrorLoginMessage);}
+
+    private WebElement getLblErrorEmailMessage() { return DriverHelper.getDriver().findElement(lblErrorEmailMessage);}
+
     //Methods
     public String getWelcomeUserMessage() {
         return getLblWelcomeUserMessage().getText();
     }
+
+    public String getErrorLoginMessage() { return getLblErrorLoginMessage().getText();}
+
+    public String getErrorEmailMessage() { return getLblErrorEmailMessage().getText();}
 
     public void login(String user, String password) {
         getTxtUsername().sendKeys(user);
