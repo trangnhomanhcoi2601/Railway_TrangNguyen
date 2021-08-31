@@ -8,13 +8,13 @@ public class BasePage {
 
     //Locators
     private final By tabLogin = By.cssSelector("li a[href='/Account/Login.cshtml']");
-    private final By ContactTab = By.cssSelector("li a[href='/Page/Contact.cshtml']");
+    private final By tabContact = By.cssSelector("li a[href='/Page/Contact.cshtml']");
 
     //Elements
     private WebElement getLoginTab() {
         return DriverHelper.getDriver().findElement(tabLogin);
     }
-    private WebElement getContactTab() { return DriverHelper.getDriver().findElement(ContactTab);}
+    private WebElement getContactTab() { return DriverHelper.getDriver().findElement(tabContact);}
 
     //Methods
     public void goToLoginTab() {

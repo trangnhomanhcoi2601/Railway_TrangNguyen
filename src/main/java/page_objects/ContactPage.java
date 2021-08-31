@@ -10,8 +10,8 @@ public class ContactPage extends BasePage {
     private By lblEmailContact = By.cssSelector("#content a");
 
     //Elements
-    private WebElement getlblEmailContact() { return DriverHelper.getDriver().findElement(lblEmailContact);}
+    private WebElement getLblEmailContact() { return DriverHelper.getDriver().findElement(lblEmailContact);}
 
     //Methods
-    public String getEmailContact() { return getlblEmailContact().getAttribute("href");}
+    public String getEmailContact() { return getLblEmailContact().getAttribute("href");}
 }
