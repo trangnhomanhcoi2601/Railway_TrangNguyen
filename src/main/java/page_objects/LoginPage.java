@@ -49,7 +49,7 @@ public class LoginPage extends BasePage {
     }
 
     public void repeatLogin(String user, String password, int numberOfTimes) {
-        for (int i=0; i<numberOfTimes; i++) {
+        for (int i = 0; i < numberOfTimes; i++) {
             getTxtUsername().clear();
             getTxtUsername().sendKeys(user);
             getTxtPassword().clear();
