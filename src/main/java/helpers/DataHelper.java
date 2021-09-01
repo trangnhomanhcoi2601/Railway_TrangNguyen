@@ -10,10 +10,6 @@ public class DataHelper {
         return faker.internet().emailAddress();
     }
 
-    public static String getRandomPassword() {
-        return faker.letterify("??????????");
-    }
-
     public static String getRandomNumber() {
         return faker.numerify("########");
     }
