@@ -15,7 +15,6 @@ public class BasePage {
     private final By tabLogout = By.cssSelector("li a[href='/Account/Logout']");
     private final By tabRegister = By.cssSelector("li a[href='/Account/Register.cshtml']");
 
-
     //Elements
     private WebElement getLoginTab() {
         return DriverHelper.getDriver().findElement(tabLogin);
@@ -36,7 +35,6 @@ public class BasePage {
     private WebElement getRegisterTab() {
         return DriverHelper.getDriver().findElement(tabRegister);
     }
-
 
     private WebElement getLogoutTab() {
         return DriverHelper.getDriver().findElement(tabLogout);
