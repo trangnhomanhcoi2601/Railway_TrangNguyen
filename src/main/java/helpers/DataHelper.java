@@ -9,9 +9,7 @@ public class DataHelper {
     private static Random randomGenerator = new Random();
 
     public static String getRandomEmail() {
-        int randomInt = randomGenerator.nextInt(1000);
-        String randomEmail = "autouser" + String.valueOf(randomInt) + "@gmail.com";
-        return randomEmail;
+        return faker.internet().emailAddress();
     }
 
     public static String getRandomPassword() {

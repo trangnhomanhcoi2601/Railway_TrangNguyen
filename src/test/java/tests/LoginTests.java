@@ -46,7 +46,7 @@ public class LoginTests extends BaseTests {
     @Test(description = "System shows message when user enters wrong password 4 times")
     public void tc05_LoginWithEnteringWrongPasswordSeveralTimes(){
         LogHelper.info("Login with wrong password 4 times ");
-        loginPage.repeatLogin(Constants.USER, DataHelper.getRandomPassword());
+        loginPage.repeatLogin(Constants.USER, invalidPassword, 4);
 
         LogHelper.info("Check the error message");
         Assert.assertEquals(loginPage.getErrorLoginMessage(), "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.","Error login message doesn't display correctly");

@@ -48,8 +48,8 @@ public class LoginPage extends BasePage {
         getBtnLogin().click();
     }
 
-    public void repeatLogin(String user, String password) {
-        for (int i=0; i<4; i++) {
+    public void repeatLogin(String user, String password, int numberOfTimes) {
+        for (int i=0; i<numberOfTimes; i++) {
             getTxtUsername().clear();
             getTxtUsername().sendKeys(user);
             getTxtPassword().clear();
