@@ -11,7 +11,7 @@ public class ContactTests extends BaseTests {
 
     @Test(description = "Contact Email contains correct href value which can help to quickly open Outlook Compose Message dialog")
     public void tc04_CheckValueOfContactEmail() {
-        LogHelper.info("Go to contact tab");
+        LogHelper.info("Go to Contact page");
         contactPage.goToContactPage();
 
         LogHelper.info("Check the href value of contact email");

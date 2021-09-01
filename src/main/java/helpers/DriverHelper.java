@@ -26,4 +26,8 @@ public class DriverHelper {
     public static WebDriver getDriver() {
         return driver;
     }
+
+    public static String getCurrentTitle() {
+        return DriverHelper.getDriver().getTitle();
+    }
 }
