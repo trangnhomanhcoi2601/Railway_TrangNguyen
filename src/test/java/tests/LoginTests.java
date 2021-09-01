@@ -23,7 +23,7 @@ public class LoginTests extends BaseTests {
 
     @Test(description = "User can log into Railway with valid username and password")
     public void tc01_LoginWithValidData() {
-        LogHelper.info("Enter login information");
+        LogHelper.info("Login with valid account");
         loginPage.login(Constants.USER, Constants.PASSWORD);
 
         LogHelper.info("Check welcome user message");
@@ -51,7 +51,7 @@ public class LoginTests extends BaseTests {
 
     @Test(description = "System shows message when user enters wrong password 4 times")
     public void tc05_LoginWithEnteringWrongPasswordSeveralTimes() {
-        LogHelper.info("Login with wrong password 4 times ");
+        LogHelper.info("Login with wrong password 4 times");
         loginPage.repeatLogin(Constants.USER, invalidPassword, 4);
 
         LogHelper.info("Check the error message");
@@ -60,7 +60,7 @@ public class LoginTests extends BaseTests {
 
     @Test(description = "Additional pages display once user logged in")
     public void tc06_AdditionalPagesDisplayOnceUserLoggedIn() {
-        LogHelper.info("Enter login information. ");
+        LogHelper.info("Login with valid account");
         loginPage.login(Constants.USER, Constants.PASSWORD);
 
         LogHelper.info("Check presence of tabs");
