@@ -1,22 +1,29 @@
 package tests;
 
 import common.Constants;
+import helpers.DriverHelper;
 import helpers.LogHelper;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import page_objects.ChangePasswordPage;
 import page_objects.LoginPage;
+import page_objects.MyTicketPage;
 
 public class LoginTests extends BaseTests {
 
     private LoginPage loginPage = new LoginPage();
+    private MyTicketPage myTicketPage = new MyTicketPage();
+    private ChangePasswordPage changePasswordPage = new ChangePasswordPage();
     private final String invalidPassword = "wrong password";
 
     @BeforeMethod
-    public void preCondition() {loginPage.goToLoginPage();}
+    public void preCondition() {
+        loginPage.goToLoginPage();
+    }
 
     @Test(description = "User can log into Railway with valid username and password")
     public void tc01_LoginWithValidData() {
-        LogHelper.info("Enter login information");
+        LogHelper.info("Login with valid account");
         loginPage.login(Constants.USER, Constants.PASSWORD);
 
         LogHelper.info("Check welcome user message");
@@ -43,11 +50,34 @@ public class LoginTests extends BaseTests {
     }
 
     @Test(description = "System shows message when user enters wrong password 4 times")
-    public void tc05_LoginWithEnteringWrongPasswordSeveralTimes(){
-        LogHelper.info("Login with wrong password 4 times ");
+    public void tc05_LoginWithEnteringWrongPasswordSeveralTimes() {
+        LogHelper.info("Login with wrong password 4 times");
         loginPage.repeatLogin(Constants.USER, invalidPassword, 4);
 
         LogHelper.info("Check the error message");
-        Assert.assertEquals(loginPage.getErrorLoginMessage(), "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.","Error login message doesn't display correctly");
+        Assert.assertEquals(loginPage.getErrorLoginMessage(), "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.", "Error login message doesn't display correctly");
+    }
+
+    @Test(description = "Additional pages display once user logged in")
+    public void tc06_AdditionalPagesDisplayOnceUserLoggedIn() {
+        LogHelper.info("Login with valid account");
+        loginPage.login(Constants.USER, Constants.PASSWORD);
+
+        LogHelper.info("Check presence of tabs");
+        Assert.assertTrue(loginPage.doesMyTicketTabDisplay(), "My ticket tab doesn't display");
+        Assert.assertTrue(loginPage.doesChangePasswordTabDisplay(), "Change password tab doesn't display");
+        Assert.assertTrue(loginPage.doesLogoutTabDisplay(), "Logout tab doesn't display");
+
+        LogHelper.info("Go to My Ticket page");
+        myTicketPage.goToMyTicketPage();
+
+        LogHelper.info("Check if the user may be redirected to the My Ticket page");
+        Assert.assertEquals(DriverHelper.getCurrentTitle(), "Safe Railway - My Ticket", "The user is not redirected to the My Ticket page");
+
+        LogHelper.info("Go to Change Password page");
+        changePasswordPage.goToChangePasswordPage();
+
+        LogHelper.info("Check if the user may be redirected to the Change Password page");
+        Assert.assertEquals(DriverHelper.getCurrentTitle(), "Safe Railway - Change Password", "The user is not redirected to the Change Password page");
     }
 }
