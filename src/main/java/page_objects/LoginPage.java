@@ -13,6 +13,7 @@ public class LoginPage extends BasePage {
     private By lblWelcomeUserMessage = By.xpath("//div[@id='banner']/div[@class='account']/strong");
     private By lblErrorLoginMessage = By.cssSelector("div p[class='message error LoginForm']");
     private By lblErrorEmailMessage = By.cssSelector(".username [class = 'validation-error']");
+    private By lnkForgotPasswordPage = By.cssSelector("li a[href='/Account/ForgotPassword.cshtml']");
 
     //Elements
     private WebElement getTxtUsername() {
@@ -39,6 +40,10 @@ public class LoginPage extends BasePage {
         return DriverHelper.getDriver().findElement(lblErrorEmailMessage);
     }
 
+    private WebElement getLnkForgotPasswordPage() {
+        return DriverHelper.getDriver().findElement(lnkForgotPasswordPage);
+    }
+
     //Methods
     public String getWelcomeUserMessage() {
         return getLblWelcomeUserMessage().getText();
@@ -50,6 +55,10 @@ public class LoginPage extends BasePage {
 
     public String getErrorEmailMessage() {
         return getLblErrorEmailMessage().getText();
+    }
+
+    public void clickForgotPasswordLink() {
+        getLnkForgotPasswordPage().click();
     }
 
     public void login(String user, String password) {

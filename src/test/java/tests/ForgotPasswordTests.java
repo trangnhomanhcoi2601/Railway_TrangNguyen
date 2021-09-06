@@ -31,7 +31,7 @@ public class ForgotPasswordTests extends BaseTests {
         loginPage.goToLoginPage();
 
         LogHelper.info("Click on 'Forgot password page' link");
-        forgotPasswordPage.clickForgotPasswordLink();
+        loginPage.clickForgotPasswordLink();
 
         LogHelper.info("Reset password");
         forgotPasswordPage.resetPassword(email);
@@ -46,7 +46,7 @@ public class ForgotPasswordTests extends BaseTests {
         loginPage.goToLoginPage();
 
         LogHelper.info("Click on 'Forgot password page' link");
-        forgotPasswordPage.clickForgotPasswordLink();
+        loginPage.clickForgotPasswordLink();
 
         LogHelper.info("Reset password with incorrect email");
         forgotPasswordPage.resetPassword(incorrectEmail);
