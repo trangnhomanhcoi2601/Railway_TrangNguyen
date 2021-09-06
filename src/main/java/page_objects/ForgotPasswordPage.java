@@ -10,6 +10,7 @@ public class ForgotPasswordPage extends BasePage {
     private By lnkForgotPasswordPage = By.cssSelector("li a[href='/Account/ForgotPassword.cshtml']");
     private By txtEmailAddress = By.cssSelector("#email");
     private By btnSendInstructions = By.cssSelector(".form-actions [value='Send Instructions']");
+    private By lblErrorMessage = By.xpath("//p[@class='message error']");
 
     //Elements
     private WebElement getTxtEmailAddress() {
@@ -24,6 +25,10 @@ public class ForgotPasswordPage extends BasePage {
         return DriverHelper.getDriver().findElement(lnkForgotPasswordPage);
     }
 
+    private WebElement getLblErrorMessage() {
+        return DriverHelper.getDriver().findElement(lblErrorMessage);
+    }
+
     //Methods
     public void clickSendInstructionsButton() {
         getBtnSendInstructions().click();
@@ -31,6 +36,10 @@ public class ForgotPasswordPage extends BasePage {
 
     public void clickForgotPasswordLink() {
         getLnkForgotPasswordPage().click();
+    }
+
+    public String getErrorMessage() {
+        return getLblErrorMessage().getText();
     }
 
     public void resetPassword(String email) {
