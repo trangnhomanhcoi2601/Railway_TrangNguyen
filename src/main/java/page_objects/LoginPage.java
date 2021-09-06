@@ -27,20 +27,30 @@ public class LoginPage extends BasePage {
         return DriverHelper.getDriver().findElement(btnLogin);
     }
 
-    private WebElement getLblWelcomeUserMessage() { return DriverHelper.getDriver().findElement(lblWelcomeUserMessage);}
+    private WebElement getLblWelcomeUserMessage() {
+        return DriverHelper.getDriver().findElement(lblWelcomeUserMessage);
+    }
 
-    private WebElement getLblErrorLoginMessage() { return DriverHelper.getDriver().findElement(lblErrorLoginMessage);}
+    private WebElement getLblErrorLoginMessage() {
+        return DriverHelper.getDriver().findElement(lblErrorLoginMessage);
+    }
 
-    private WebElement getLblErrorEmailMessage() { return DriverHelper.getDriver().findElement(lblErrorEmailMessage);}
+    private WebElement getLblErrorEmailMessage() {
+        return DriverHelper.getDriver().findElement(lblErrorEmailMessage);
+    }
 
     //Methods
     public String getWelcomeUserMessage() {
         return getLblWelcomeUserMessage().getText();
     }
 
-    public String getErrorLoginMessage() { return getLblErrorLoginMessage().getText();}
+    public String getErrorLoginMessage() {
+        return getLblErrorLoginMessage().getText();
+    }
 
-    public String getErrorEmailMessage() { return getLblErrorEmailMessage().getText();}
+    public String getErrorEmailMessage() {
+        return getLblErrorEmailMessage().getText();
+    }
 
     public void login(String user, String password) {
         getTxtUsername().sendKeys(user);

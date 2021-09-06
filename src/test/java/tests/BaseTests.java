@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTests {
 
-   @BeforeMethod
+    @BeforeMethod
     public void setUp() {
         DriverHelper.initDriver();
         DriverHelper.navigate();
