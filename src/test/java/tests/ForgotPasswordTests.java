@@ -35,7 +35,7 @@ public class ForgotPasswordTests extends BaseTests {
         LogHelper.info("Reset password");
         forgotPasswordPage.resetPassword(email);
 
-        LogHelper.info("Check the notification message");
-        Assert.fail("Instructions to reset your password have been sent to " + email);
+        LogHelper.info("Describe the issue");
+        Assert.fail("Server Error appears with message: Mailbox unavailable. The server response was: that smtp username is not allowed to send");
     }
 }
