@@ -11,7 +11,7 @@ public class RegisterTests extends BaseTests {
     RegisterPage registerPage = new RegisterPage();
     private final String email = DataHelper.getRandomEmail();
     private final String password = "123456789";
-    private final String pid = DataHelper.getRandomNumber();
+    private final String pid = "123456789";
 
     @Test(description = "User can register an account with valid info")
     public void tc07_UserCreateNewAccount() {

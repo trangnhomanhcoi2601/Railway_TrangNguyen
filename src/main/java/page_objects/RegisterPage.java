@@ -36,9 +36,13 @@ public class RegisterPage extends BasePage {
         return DriverHelper.getDriver().findElement(btnRegister);
     }
 
+    private WebElement getLblSuccessMessage() {
+        return DriverHelper.getDriver().findElement(lblSuccessMessage);
+    }
+
     //Methods
     public String getSuccessMessage() {
-        return DriverHelper.getDriver().findElement(lblSuccessMessage).getText();
+        return getLblSuccessMessage().getText();
     }
 
     public void clickRegisterButton() {

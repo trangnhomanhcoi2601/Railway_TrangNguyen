@@ -9,8 +9,4 @@ public class DataHelper {
     public static String getRandomEmail() {
         return faker.internet().emailAddress();
     }
-
-    public static String getRandomNumber() {
-        return faker.numerify("########");
-    }
 }
