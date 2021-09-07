@@ -40,7 +40,7 @@ public class MyTicketTests extends BaseTests{
         loginPage.login(email, password);
 
         LogHelper.info("Go to Book Ticket page");
-        bookTicketPage.goToBookticketPage();
+        bookTicketPage.goToBookTicketPage();
 
         LogHelper.info("Set value of fields for ticket");
         Ticket ticket = new Ticket();
