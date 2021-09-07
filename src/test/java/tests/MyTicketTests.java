@@ -1,6 +1,5 @@
 package tests;
 
-import common.Constants;
 import common.Ticket;
 import helpers.DataHelper;
 import helpers.DateHelper;
@@ -22,6 +21,7 @@ public class MyTicketTests extends BaseTests{
     private final String email = DataHelper.getRandomEmail();
     private final String password = "123456789";
     private final String pid = "123456789";
+    private final String departDay = DateHelper.getDayFromToday(10);
     private final String departFrom = "Đà Nẵng";
     private final String arriveAt = "Huế";
     private final String seatType = "Soft bed";
@@ -44,7 +44,7 @@ public class MyTicketTests extends BaseTests{
 
         LogHelper.info("Set value of fields for ticket");
         Ticket ticket = new Ticket();
-        ticket.setDepartDate(DateHelper.getDayFromToday(Constants.ADD_DAY));
+        ticket.setDepartDate(departDay);
         ticket.setDepartFrom(departFrom);
         ticket.setArriveAt(arriveAt);
         ticket.setSeatType(seatType);

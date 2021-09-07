@@ -45,28 +45,27 @@ public class BookTicketPage extends BasePage {
 
     //Methods
     public void selectDepartDate(String date) {
+        Wait.untilElementIsVisible(drpDepartDate, Constants.TIME_WAIT);
         getDrpDepartDate().selectByVisibleText(date);
     }
 
     public void selectDepartFrom(String departStation) {
+        Wait.untilElementIsVisible(drpDepartFrom, Constants.TIME_WAIT);
         getDrpDepartFrom().selectByVisibleText(departStation);
     }
 
     public void selectArriveAt(String arriveStation) {
-        try {
-            getDrpArriveAt().selectByVisibleText(arriveStation);
-            Wait.untilElementIsSelected(DriverHelper.getDriver().findElement(drpArriveAt), Constants.TIME_WAIT);
-        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-
-            getDrpArriveAt().selectByVisibleText(arriveStation);
-        }
+        Wait.untilElementIsVisible(drpArriveAt, Constants.TIME_WAIT);
+        getDrpArriveAt().selectByVisibleText(arriveStation);
     }
 
     public void selectSeatType(String seatType) {
+        Wait.untilElementIsVisible(drpSeatType, Constants.TIME_WAIT);
         getDrpSeatType().selectByVisibleText(seatType);
     }
 
     public void selectTicketAmount(String ticketAmount) {
+        Wait.untilElementIsVisible(drpTicketAmount, Constants.TIME_WAIT);
         getDrpTicketAmount().selectByVisibleText(ticketAmount);
     }
 

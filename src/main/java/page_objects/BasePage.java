@@ -17,7 +17,6 @@ public class BasePage {
     private final By tabBookticket = By.cssSelector("li a[href='/Page/BookTicketPage.cshtml']");
     private final By tabMyticket = By.cssSelector("li a[href='/Page/ManageTicket.cshtml']");
 
-
     //Elements
     private WebElement getLoginTab() {
         return DriverHelper.getDriver().findElement(tabLogin);
@@ -51,7 +50,6 @@ public class BasePage {
         return DriverHelper.getDriver().findElement(tabMyticket);
     }
 
-
     //Methods
     public void goToLoginPage() {
         getLoginTab().click();
@@ -80,7 +78,6 @@ public class BasePage {
     public void goToMyticketPage() {
         getMyticketTab().click();
     }
-
 
     public boolean doesMyTicketTabDisplay() {
         return ElementHelper.isElementDisplayed(getMyTicketTab());
