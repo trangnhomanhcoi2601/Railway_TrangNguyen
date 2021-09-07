@@ -27,7 +27,7 @@ public class MyTicketPage extends BasePage {
         DriverHelper.getDriver().switchTo().alert().accept();
     }
 
-    public boolean isTicketDeleted() {
-        return ElementHelper.isElementPresented(rowTicket);
+    public boolean doesTicketDisplay() {
+        return ElementHelper.isElementDisplayed(rowTicket);
     }
 }

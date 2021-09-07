@@ -60,6 +60,6 @@ public class MyTicketTests extends BaseTests{
         myTicketPage.cancelTicket();
 
         LogHelper.info("Check if the canceled ticket is disappeared");
-        Assert.assertFalse(myTicketPage.isTicketDeleted(),"The canceled ticket is appeared" );
+        Assert.assertFalse(myTicketPage.doesTicketDisplay(),"The canceled ticket is appeared" );
     }
 }

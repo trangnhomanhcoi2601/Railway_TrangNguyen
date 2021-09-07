@@ -14,8 +14,7 @@ public class BasePage {
     private final By tabChangePassword = By.cssSelector("li a[href='/Account/ChangePassword.cshtml']");
     private final By tabLogout = By.cssSelector("li a[href='/Account/Logout']");
     private final By tabRegister = By.cssSelector("li a[href='/Account/Register.cshtml']");
-    private final By tabBookticket = By.cssSelector("li a[href='/Page/BookTicketPage.cshtml']");
-    private final By tabMyticket = By.cssSelector("li a[href='/Page/ManageTicket.cshtml']");
+    private final By tabBookTicket = By.cssSelector("li a[href='/Page/BookTicketPage.cshtml']");
 
     //Elements
     private WebElement getLoginTab() {
@@ -38,16 +37,12 @@ public class BasePage {
         return DriverHelper.getDriver().findElement(tabRegister);
     }
 
-    private WebElement getLogoutTab() {
-        return DriverHelper.getDriver().findElement(tabLogout);
-    }
-
     private WebElement getBookticketTab() {
-        return DriverHelper.getDriver().findElement(tabBookticket);
+        return DriverHelper.getDriver().findElement(tabBookTicket);
     }
 
     private WebElement getMyticketTab() {
-        return DriverHelper.getDriver().findElement(tabMyticket);
+        return DriverHelper.getDriver().findElement(tabMyTicket);
     }
 
     //Methods
@@ -80,14 +75,14 @@ public class BasePage {
     }
 
     public boolean doesMyTicketTabDisplay() {
-        return ElementHelper.isElementDisplayed(getMyTicketTab());
+        return ElementHelper.isElementDisplayed(tabMyTicket);
     }
 
     public boolean doesChangePasswordTabDisplay() {
-        return ElementHelper.isElementDisplayed(getChangePasswordTab());
+        return ElementHelper.isElementDisplayed(tabChangePassword);
     }
 
     public boolean doesLogoutTabDisplay() {
-        return ElementHelper.isElementDisplayed(getLogoutTab());
+        return ElementHelper.isElementDisplayed(tabLogout);
     }
 }

@@ -3,19 +3,10 @@ package helpers;
 import org.openqa.selenium.*;
 
 public class ElementHelper {
-    public static boolean isElementDisplayed(WebElement element) {
+    public static boolean isElementDisplayed(By locator) {
         try {
-            return element.isDisplayed();
+            return DriverHelper.getDriver().findElement(locator).isDisplayed();
         } catch (NotFoundException ex) {
-            return false;
-        }
-    }
-
-    public static boolean isElementPresented(By locator) {
-        try {
-            DriverHelper.getDriver().findElement(locator);
-            return true;
-        } catch (NoSuchElementException e) {
             return false;
         }
     }
