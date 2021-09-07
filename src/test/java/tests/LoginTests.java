@@ -18,6 +18,7 @@ public class LoginTests extends BaseTests {
 
     @BeforeMethod
     public void preCondition() {
+        LogHelper.info("Go to Login page");
         loginPage.goToLoginPage();
     }
 

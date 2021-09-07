@@ -21,7 +21,10 @@ public class ForgotPasswordTests extends BaseTests {
 
     @BeforeMethod(onlyForGroups = {"g1"})
     public void preCondition() {
+        LogHelper.info("Go to Register page");
         registerPage.goToRegisterPage();
+
+        LogHelper.info("Register with valid information");
         registerPage.register(email, password, password, pid);
     }
 

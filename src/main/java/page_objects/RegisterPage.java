@@ -14,6 +14,9 @@ public class RegisterPage extends BasePage {
     private By txtPid = By.id("pid");
     private By btnRegister = By.cssSelector("input[type='submit']");
     private By lblSuccessMessage = By.cssSelector("#content p");
+    private By lblErrorFormMessage = By.cssSelector("#content>p[class = 'message error']");
+    private By lblErrorPasswordMessage = By.cssSelector(".password>label[class='validation-error']");
+    private By lblErrorPidMessage = By.cssSelector(".pid-number>label[class='validation-error']");
 
     //Elements
     private WebElement getTxtEmail() {
@@ -40,9 +43,33 @@ public class RegisterPage extends BasePage {
         return DriverHelper.getDriver().findElement(lblSuccessMessage);
     }
 
+    private WebElement getLblErrorFormMessage() {
+        return DriverHelper.getDriver().findElement(lblErrorFormMessage);
+    }
+
+    private WebElement getLblErrorPasswordMessage() {
+        return DriverHelper.getDriver().findElement(lblErrorPasswordMessage);
+    }
+
+    private WebElement getLblErrorPidMessage() {
+        return DriverHelper.getDriver().findElement(lblErrorPidMessage);
+    }
+
     //Methods
     public String getSuccessMessage() {
         return getLblSuccessMessage().getText();
+    }
+
+    public String getErrorFormMessage() {
+        return getLblErrorFormMessage().getText();
+    }
+
+    public String getErrorPasswordMessage() {
+        return getLblErrorPasswordMessage().getText();
+    }
+
+    public String getErrorPidMessage() {
+        return getLblErrorPidMessage().getText();
     }
 
     public void clickRegisterButton() {
