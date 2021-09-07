@@ -24,7 +24,7 @@ public class MyTicketPage extends BasePage {
     public void cancelTicket() {
         ElementHelper.scrollToView(getBtnCancel());
         clickCancelButon();
-        DriverHelper.getDriver().switchTo().alert().accept();
+        DriverHelper.acceptAlert();
     }
 
     public boolean doesTicketDisplay() {
