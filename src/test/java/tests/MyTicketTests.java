@@ -54,7 +54,7 @@ public class MyTicketTests extends BaseTests{
         bookTicketPage.bookTicket(ticket);
 
         LogHelper.info("Go to My Ticket page");
-        myTicketPage.goToMyticketPage();
+        myTicketPage.goToMyTicketPage();
 
         LogHelper.info("Cancel a ticket");
         myTicketPage.cancelTicket();

@@ -41,10 +41,6 @@ public class BasePage {
         return DriverHelper.getDriver().findElement(tabBookTicket);
     }
 
-    private WebElement getMyticketTab() {
-        return DriverHelper.getDriver().findElement(tabMyTicket);
-    }
-
     //Methods
     public void goToLoginPage() {
         getLoginTab().click();
@@ -68,10 +64,6 @@ public class BasePage {
 
     public void goToBookticketPage() {
         getBookticketTab().click();
-    }
-
-    public void goToMyticketPage() {
-        getMyticketTab().click();
     }
 
     public boolean doesMyTicketTabDisplay() {
