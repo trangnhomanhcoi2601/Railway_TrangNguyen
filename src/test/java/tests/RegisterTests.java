@@ -35,7 +35,7 @@ public class RegisterTests extends BaseTests {
         registerPage.register(email, "", "", "");
 
         LogHelper.info("Check error messages");
-        Assert.assertEquals(registerPage.getErrorMessage(), "There're errors in the form. Please correct the errors and try again.", "Error message doesn't display correctly");
+        Assert.assertEquals(registerPage.getErrorFormMessage(), "There're errors in the form. Please correct the errors and try again.", "Error message doesn't display correctly");
         Assert.assertEquals(registerPage.getErrorPasswordMessage(), "Invalid password length", "Error password message doesn't display correctly");
         Assert.assertEquals(registerPage.getErrorPidMessage(), "Invalid ID length", "Error pid message doesn't display correctly");
     }

@@ -14,7 +14,7 @@ public class RegisterPage extends BasePage {
     private By txtPid = By.id("pid");
     private By btnRegister = By.cssSelector("input[type='submit']");
     private By lblSuccessMessage = By.cssSelector("#content p");
-    private By lblErrorMessage = By.cssSelector("#content>p[class = 'message error']");
+    private By lblErrorFormMessage = By.cssSelector("#content>p[class = 'message error']");
     private By lblErrorPasswordMessage = By.cssSelector(".password>label[class='validation-error']");
     private By lblErrorPidMessage = By.cssSelector(".pid-number>label[class='validation-error']");
 
@@ -43,8 +43,8 @@ public class RegisterPage extends BasePage {
         return DriverHelper.getDriver().findElement(lblSuccessMessage);
     }
 
-    private WebElement getLblErrorMessage() {
-        return DriverHelper.getDriver().findElement(lblErrorMessage);
+    private WebElement getLblErrorFormMessage() {
+        return DriverHelper.getDriver().findElement(lblErrorFormMessage);
     }
 
     private WebElement getLblErrorPasswordMessage() {
@@ -60,8 +60,8 @@ public class RegisterPage extends BasePage {
         return getLblSuccessMessage().getText();
     }
 
-    public String getErrorMessage() {
-        return getLblErrorMessage().getText();
+    public String getErrorFormMessage() {
+        return getLblErrorFormMessage().getText();
     }
 
     public String getErrorPasswordMessage() {
