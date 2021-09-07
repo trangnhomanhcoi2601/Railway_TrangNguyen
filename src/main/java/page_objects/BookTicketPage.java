@@ -16,7 +16,7 @@ public class BookTicketPage extends BasePage {
     private By drpArriveAt = By.cssSelector("select[name='ArriveStation']");
     private By drpSeatType = By.cssSelector("select[name = 'SeatType']");
     private By drpTicketAmount = By.cssSelector("select[name = 'TicketAmount']");
-    private By btnBookticket = By.cssSelector("input[value='Book ticket']");
+    private By btnBookTicket = By.cssSelector("input[value='Book ticket']");
 
     //Elements
     private Select getDrpDepartDate() {
@@ -39,8 +39,8 @@ public class BookTicketPage extends BasePage {
         return new Select(DriverHelper.getDriver().findElement(drpTicketAmount));
     }
 
-    private WebElement getBtnBookticket() {
-        return DriverHelper.getDriver().findElement(btnBookticket);
+    private WebElement getBtnBookTicket() {
+        return DriverHelper.getDriver().findElement(btnBookTicket);
     }
 
     //Methods
@@ -70,12 +70,12 @@ public class BookTicketPage extends BasePage {
     }
 
     public void bookTicket(Ticket ticket) {
-        ElementHelper.scrollToView(this.getBtnBookticket());
+        ElementHelper.scrollToView(this.getBtnBookTicket());
         this.selectDepartDate(ticket.getDepartDate());
         this.selectDepartFrom(ticket.getDepartFrom());
         this.selectArriveAt(ticket.getArriveAt());
         this.selectSeatType(ticket.getSeatType());
         this.selectTicketAmount(ticket.getTicketAmount());
-        this.getBtnBookticket().click();
+        this.getBtnBookTicket().click();
     }
 }
