@@ -57,4 +57,19 @@ public class ForgotPasswordTests extends BaseTests {
         LogHelper.info("Check the error message");
         Assert.assertEquals(forgotPasswordPage.getErrorMessage(), "This email address doesn't exist.", "The error message doesn't display correctly");
     }
+
+    @Test(description = "Errors display when password reset token is blank" , groups = {"g1"})
+    public void tc12_ErrorsDisplayWhenPasswordResetTokenIsBlank() {
+        LogHelper.info("Go to Login page");
+        loginPage.goToLoginPage();
+
+        LogHelper.info("Click on 'Forgot password page' link");
+        loginPage.clickForgotPasswordLink();
+
+        LogHelper.info("Reset password");
+        forgotPasswordPage.resetPassword(email);
+
+        LogHelper.info("Describe the issue");
+        Assert.fail("Server Error appears with message: Mailbox unavailable. The server response was: that smtp username is not allowed to send");
+    }
 }
