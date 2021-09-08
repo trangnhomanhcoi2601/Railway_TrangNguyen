@@ -1,41 +1,28 @@
 package page_objects;
 
-import helpers.DriverHelper;
-import helpers.ElementHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import com.logigear.control.common.imp.Button;
+import com.logigear.control.common.imp.Label;
+import com.logigear.control.common.imp.TextBox;
 
 public class ForgotPasswordPage extends BasePage {
+
     //Locators
-    private By txtEmailAddress = By.cssSelector("#email");
-    private By btnSendInstructions = By.cssSelector(".form-actions [value='Send Instructions']");
-    private By lblErrorMessage = By.xpath("//p[@class='message error']");
-
-    //Elements
-    private WebElement getTxtEmailAddress() {
-        return DriverHelper.getDriver().findElement(txtEmailAddress);
-    }
-
-    private WebElement getBtnSendInstructions() {
-        return DriverHelper.getDriver().findElement(btnSendInstructions);
-    }
-
-    private WebElement getLblErrorMessage() {
-        return DriverHelper.getDriver().findElement(lblErrorMessage);
-    }
+    private TextBox txtEmailAddress = new TextBox("css=#email");
+    private Button btnSendInstructions = new Button("css=.form-actions [value='Send Instructions']");
+    private Label lblErrorMessage = new Label("xpath=//p[@class='message error']");
 
     //Methods
     public void clickSendInstructionsButton() {
-        getBtnSendInstructions().click();
+        btnSendInstructions.click();
     }
 
     public String getErrorMessage() {
-        return getLblErrorMessage().getText();
+        return lblErrorMessage.getText();
     }
 
     public void resetPassword(String email) {
-        getTxtEmailAddress().sendKeys(email);
-        ElementHelper.scrollToView(getBtnSendInstructions());
+        txtEmailAddress.enter(email);
+        btnSendInstructions.scrollToView();
         clickSendInstructionsButton();
     }
 }

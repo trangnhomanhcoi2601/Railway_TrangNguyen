@@ -1,8 +1,10 @@
 package tests;
 
+import com.logigear.driver.DriverUtils;
 import common.Constants;
 import helpers.DriverHelper;
 import helpers.LogHelper;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import page_objects.ChangePasswordPage;

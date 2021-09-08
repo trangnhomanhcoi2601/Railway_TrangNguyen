@@ -1,5 +1,6 @@
 package helpers;
 
+import com.logigear.driver.DriverUtils;
 import common.Constants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +17,7 @@ public class DriverHelper {
     }
 
     public static void navigate() {
-        driver.get(Constants.URL);
+        driver.get(Constants.BASE_URL);
     }
 
     public static void quit() {
@@ -24,7 +25,7 @@ public class DriverHelper {
     }
 
     public static WebDriver getDriver() {
-        return driver;
+        return DriverUtils.getWebDriver();
     }
 
     public static String getCurrentTitle() {

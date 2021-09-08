@@ -1,33 +1,24 @@
 package page_objects;
 
-import helpers.DriverHelper;
-import helpers.ElementHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import com.logigear.driver.DriverUtils;
+import common.Ticket;
+import com.logigear.control.common.imp.Label;
 
 public class MyTicketPage extends BasePage {
 
     //Locators
-    private By btnCancel = By.cssSelector("input[value='Cancel']");
-    private By rowTicket = By.xpath("//table[@class='MyTable']/tbody//following-sibling::tr");
-
-    //Elements
-    private WebElement getBtnCancel() {
-        return DriverHelper.getDriver().findElement(btnCancel);
-    }
+    private final Label btnCancel = new Label("//table[@class='MyTable']/tbody/tr//td[text()='%s']/following-sibling::td[text()='%s']/following-sibling::td/input[@value='Cancel']");
 
     //Methods
-    public void clickCancelButon() {
-        getBtnCancel().click();
+    public void cancelTicket(Ticket ticket) {
+        btnCancel.setDynamicValue(ticket.getDepartFrom(), ticket.getArriveAt());
+        btnCancel.scrollToView();
+        btnCancel.click();
+        DriverUtils.acceptAlert();
     }
 
-    public void cancelTicket() {
-        ElementHelper.scrollToView(getBtnCancel());
-        clickCancelButon();
-        DriverHelper.acceptAlert();
-    }
-
-    public boolean doesTicketDisplay() {
-        return ElementHelper.isElementDisplayed(rowTicket);
+    public boolean doesTicketDisplay(Ticket ticket) {
+        btnCancel.setDynamicValue(ticket.getDepartFrom(), ticket.getArriveAt());
+        return btnCancel.isVisible();
     }
 }

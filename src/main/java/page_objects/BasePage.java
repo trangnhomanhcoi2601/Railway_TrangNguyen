@@ -1,80 +1,52 @@
 package page_objects;
 
-import helpers.DriverHelper;
-import helpers.ElementHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import com.logigear.control.common.imp.Link;
 
 public class BasePage {
 
     //Locators
-    private final By tabLogin = By.cssSelector("li a[href='/Account/Login.cshtml']");
-    private final By tabContact = By.cssSelector("li a[href='/Page/Contact.cshtml']");
-    private final By tabMyTicket = By.cssSelector("li a[href='/Page/ManageTicket.cshtml']");
-    private final By tabChangePassword = By.cssSelector("li a[href='/Account/ChangePassword.cshtml']");
-    private final By tabLogout = By.cssSelector("li a[href='/Account/Logout']");
-    private final By tabRegister = By.cssSelector("li a[href='/Account/Register.cshtml']");
-    private final By tabBookTicket = By.cssSelector("li a[href='/Page/BookTicketPage.cshtml']");
-
-    //Elements
-    private WebElement getLoginTab() {
-        return DriverHelper.getDriver().findElement(tabLogin);
-    }
-
-    private WebElement getContactTab() {
-        return DriverHelper.getDriver().findElement(tabContact);
-    }
-
-    private WebElement getMyTicketTab() {
-        return DriverHelper.getDriver().findElement(tabMyTicket);
-    }
-
-    private WebElement getChangePasswordTab() {
-        return DriverHelper.getDriver().findElement(tabChangePassword);
-    }
-
-    private WebElement getRegisterTab() {
-        return DriverHelper.getDriver().findElement(tabRegister);
-    }
-
-    private WebElement getBookTicketTab() {
-        return DriverHelper.getDriver().findElement(tabBookTicket);
-    }
+    private final Link tabLogin = new Link("css=li a[href='/Account/Login.cshtml']");
+    private final Link tabContact = new Link("css=li a[href='/Page/Contact.cshtml']");
+    private final Link tabMyTicket = new Link("css=li a[href='/Page/ManageTicket.cshtml']");
+    private final Link tabChangePassword = new Link("css=li a[href='/Account/ChangePassword.cshtml']");
+    private final Link tabLogout = new Link("css=li a[href='/Account/Logout']");
+    private final Link tabRegister = new Link("css=li a[href='/Account/Register.cshtml']");
+    private final Link tabBookTicket = new Link("css=li a[href='/Page/BookTicketPage.cshtml']");
 
     //Methods
     public void goToLoginPage() {
-        getLoginTab().click();
+        tabLogin.click();
     }
 
     public void goToContactPage() {
-        getContactTab().click();
+        tabContact.click();
     }
 
     public void goToMyTicketPage() {
-        getMyTicketTab().click();
+        tabMyTicket.click();
     }
 
     public void goToChangePasswordPage() {
-        getChangePasswordTab().click();
+        tabChangePassword.click();
     }
 
     public void goToRegisterPage() {
-        getRegisterTab().click();
+        tabRegister.click();
     }
 
     public void goToBookTicketPage() {
-        getBookTicketTab().click();
+        tabBookTicket.click();
     }
 
     public boolean doesMyTicketTabDisplay() {
-        return ElementHelper.isElementDisplayed(tabMyTicket);
+        return tabMyTicket.isVisible();
     }
 
     public boolean doesChangePasswordTabDisplay() {
-        return ElementHelper.isElementDisplayed(tabChangePassword);
+        return tabChangePassword.isVisible();
     }
 
     public boolean doesLogoutTabDisplay() {
-        return ElementHelper.isElementDisplayed(tabLogout);
+        return tabLogout.isVisible();
     }
 }

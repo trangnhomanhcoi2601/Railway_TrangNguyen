@@ -1,87 +1,49 @@
 package page_objects;
 
-import helpers.DriverHelper;
-import helpers.ElementHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import com.logigear.control.common.imp.TextBox;
+import com.logigear.control.common.imp.Button;
+import com.logigear.control.common.imp.Label;
 
 public class RegisterPage extends BasePage {
 
     //Locators
-    private By txtEmail = By.id("email");
-    private By txtPassword = By.id("password");
-    private By txtConfirmPassword = By.id("confirmPassword");
-    private By txtPid = By.id("pid");
-    private By btnRegister = By.cssSelector("input[type='submit']");
-    private By lblSuccessMessage = By.cssSelector("#content p");
-    private By lblErrorFormMessage = By.cssSelector("#content>p[class = 'message error']");
-    private By lblErrorPasswordMessage = By.cssSelector(".password>label[class='validation-error']");
-    private By lblErrorPidMessage = By.cssSelector(".pid-number>label[class='validation-error']");
-
-    //Elements
-    private WebElement getTxtEmail() {
-        return DriverHelper.getDriver().findElement(txtEmail);
-    }
-
-    private WebElement getTxtPassword() {
-        return DriverHelper.getDriver().findElement(txtPassword);
-    }
-
-    private WebElement getTxtConfirmPassword() {
-        return DriverHelper.getDriver().findElement(txtConfirmPassword);
-    }
-
-    private WebElement getTxtPid() {
-        return DriverHelper.getDriver().findElement(txtPid);
-    }
-
-    private WebElement getBtnRegister() {
-        return DriverHelper.getDriver().findElement(btnRegister);
-    }
-
-    private WebElement getLblSuccessMessage() {
-        return DriverHelper.getDriver().findElement(lblSuccessMessage);
-    }
-
-    private WebElement getLblErrorFormMessage() {
-        return DriverHelper.getDriver().findElement(lblErrorFormMessage);
-    }
-
-    private WebElement getLblErrorPasswordMessage() {
-        return DriverHelper.getDriver().findElement(lblErrorPasswordMessage);
-    }
-
-    private WebElement getLblErrorPidMessage() {
-        return DriverHelper.getDriver().findElement(lblErrorPidMessage);
-    }
+    private TextBox txtEmail = new TextBox("id=email");
+    private TextBox txtPassword = new TextBox("id=password");
+    private TextBox txtConfirmPassword = new TextBox("id=confirmPassword");
+    private TextBox txtPid = new TextBox("id=pid");
+    private Button btnRegister = new Button("css=input[type='submit']");
+    private Label lblSuccessMessage = new Label("css=#content p");
+    private Label lblErrorFormMessage = new Label("css=#content>p[class = 'message error']");
+    private Label lblErrorPasswordMessage = new Label("css=.password>label[class='validation-error']");
+    private Label lblErrorPidMessage = new Label("css=.pid-number>label[class='validation-error']");
 
     //Methods
     public String getSuccessMessage() {
-        return getLblSuccessMessage().getText();
+        return lblSuccessMessage.getText();
     }
 
     public String getErrorFormMessage() {
-        return getLblErrorFormMessage().getText();
+        return lblErrorFormMessage.getText();
     }
 
     public String getErrorPasswordMessage() {
-        return getLblErrorPasswordMessage().getText();
+        return lblErrorPasswordMessage.getText();
     }
 
     public String getErrorPidMessage() {
-        return getLblErrorPidMessage().getText();
+        return lblErrorPidMessage.getText();
     }
 
     public void clickRegisterButton() {
-        ElementHelper.scrollToView(getBtnRegister());
-        getBtnRegister().click();
+        btnRegister.scrollToView();
+        btnRegister.click();
     }
 
     public void register(String email, String password, String confirmPassword, String Pid) {
-        getTxtEmail().sendKeys(email);
-        getTxtPassword().sendKeys(password);
-        getTxtConfirmPassword().sendKeys(confirmPassword);
-        getTxtPid().sendKeys(Pid);
+        txtEmail.enter(email);
+        txtPassword.enter(password);
+        txtConfirmPassword.enter(confirmPassword);
+        txtPid.enter(Pid);
         clickRegisterButton();
     }
 }

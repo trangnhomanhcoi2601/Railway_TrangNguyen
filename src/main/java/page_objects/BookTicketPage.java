@@ -1,81 +1,49 @@
 package page_objects;
 
+import com.logigear.control.common.imp.Button;
 import common.Constants;
 import common.Ticket;
-import helpers.DriverHelper;
-import helpers.ElementHelper;
-import helpers.Wait;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import com.logigear.control.common.imp.ComboBox;
 
 public class BookTicketPage extends BasePage {
+
     //Locators
-    private By drpDepartDate = By.cssSelector("select[name = 'Date']");
-    private By drpDepartFrom = By.cssSelector("select[name = 'DepartStation']");
-    private By drpArriveAt = By.cssSelector("select[name='ArriveStation']");
-    private By drpSeatType = By.cssSelector("select[name = 'SeatType']");
-    private By drpTicketAmount = By.cssSelector("select[name = 'TicketAmount']");
-    private By btnBookTicket = By.cssSelector("input[value='Book ticket']");
-
-    //Elements
-    private Select getDrpDepartDate() {
-        return new Select(DriverHelper.getDriver().findElement(drpDepartDate));
-    }
-
-    private Select getDrpDepartFrom() {
-        return new Select(DriverHelper.getDriver().findElement(drpDepartFrom));
-    }
-
-    private Select getDrpArriveAt() {
-        return new Select(DriverHelper.getDriver().findElement(drpArriveAt));
-    }
-
-    private Select getDrpSeatType() {
-        return new Select(DriverHelper.getDriver().findElement(drpSeatType));
-    }
-
-    private Select getDrpTicketAmount() {
-        return new Select(DriverHelper.getDriver().findElement(drpTicketAmount));
-    }
-
-    private WebElement getBtnBookTicket() {
-        return DriverHelper.getDriver().findElement(btnBookTicket);
-    }
+    private ComboBox cboDepartDate = new ComboBox("css=select[name = 'Date']");
+    private ComboBox cboDepartFrom = new ComboBox("css=select[name = 'DepartStation']");
+    private ComboBox cboArriveAt = new ComboBox("css=select[name='ArriveStation']");
+    private ComboBox cboSeatType = new ComboBox("css=select[name = 'SeatType']");
+    private ComboBox cboTicketAmount = new ComboBox("css=select[name = 'TicketAmount']");
+    private Button btnBookTicket = new Button("css=input[value='Book ticket']");
 
     //Methods
     public void selectDepartDate(String date) {
-        Wait.untilElementIsVisible(drpDepartDate, Constants.TIME_WAIT);
-        getDrpDepartDate().selectByVisibleText(date);
+        cboDepartDate.select(date);
     }
 
     public void selectDepartFrom(String departStation) {
-        Wait.untilElementIsVisible(drpDepartFrom, Constants.TIME_WAIT);
-        getDrpDepartFrom().selectByVisibleText(departStation);
+        cboDepartFrom.select(departStation);
     }
 
     public void selectArriveAt(String arriveStation) {
-        Wait.untilElementIsVisible(drpArriveAt, Constants.TIME_WAIT);
-        getDrpArriveAt().selectByVisibleText(arriveStation);
+        cboArriveAt.waitForStalenessOfElement(Constants.QUICK_TIME);
+        cboArriveAt.select(arriveStation);
     }
 
     public void selectSeatType(String seatType) {
-        Wait.untilElementIsVisible(drpSeatType, Constants.TIME_WAIT);
-        getDrpSeatType().selectByVisibleText(seatType);
+        cboSeatType.select(seatType);
     }
 
     public void selectTicketAmount(String ticketAmount) {
-        Wait.untilElementIsVisible(drpTicketAmount, Constants.TIME_WAIT);
-        getDrpTicketAmount().selectByVisibleText(ticketAmount);
+        cboTicketAmount.select(ticketAmount);
     }
 
     public void bookTicket(Ticket ticket) {
-        ElementHelper.scrollToView(this.getBtnBookTicket());
+        btnBookTicket.scrollToView();
         this.selectDepartDate(ticket.getDepartDate());
         this.selectDepartFrom(ticket.getDepartFrom());
         this.selectArriveAt(ticket.getArriveAt());
         this.selectSeatType(ticket.getSeatType());
         this.selectTicketAmount(ticket.getTicketAmount());
-        this.getBtnBookTicket().click();
+        btnBookTicket.click();
     }
 }
