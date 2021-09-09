@@ -39,11 +39,11 @@ public class RegisterPage extends BasePage {
         btnRegister.click();
     }
 
-    public void register(String email, String password, String confirmPassword, String Pid) {
+    public void register(String email, String password, String confirmPassword, String pid) {
         txtEmail.enter(email);
         txtPassword.enter(password);
         txtConfirmPassword.enter(confirmPassword);
-        txtPid.enter(Pid);
+        txtPid.enter(pid);
         clickRegisterButton();
     }
 }
