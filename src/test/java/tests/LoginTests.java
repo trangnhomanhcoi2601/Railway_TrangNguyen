@@ -2,9 +2,7 @@ package tests;
 
 import com.logigear.driver.DriverUtils;
 import common.Constants;
-import helpers.DriverHelper;
 import helpers.LogHelper;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import page_objects.ChangePasswordPage;
@@ -75,12 +73,12 @@ public class LoginTests extends BaseTests {
         myTicketPage.goToMyTicketPage();
 
         LogHelper.info("Check if the user may be redirected to the My Ticket page");
-        Assert.assertEquals(DriverHelper.getCurrentTitle(), "Safe Railway - My Ticket", "The user is not redirected to the My Ticket page");
+        Assert.assertEquals(DriverUtils.getCurrentUrl(), "http://www.railway2.somee.com/Page/ManageTicket.cshtml", "The user is not redirected to the My Ticket page");
 
         LogHelper.info("Go to Change Password page");
         changePasswordPage.goToChangePasswordPage();
 
         LogHelper.info("Check if the user may be redirected to the Change Password page");
-        Assert.assertEquals(DriverHelper.getCurrentTitle(), "Safe Railway - Change Password", "The user is not redirected to the Change Password page");
+        Assert.assertEquals(DriverUtils.getCurrentUrl(), "http://www.railway2.somee.com/Account/ChangePassword.cshtml", "The user is not redirected to the Change Password page");
     }
 }

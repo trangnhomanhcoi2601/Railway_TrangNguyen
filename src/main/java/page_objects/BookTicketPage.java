@@ -25,7 +25,7 @@ public class BookTicketPage extends BasePage {
     }
 
     public void selectArriveAt(String arriveStation) {
-        cboArriveAt.waitForStalenessOfElement(Constants.QUICK_TIME);
+        cboArriveAt.waitForStalenessOfElement(Constants.WAIT_TIME);
         cboArriveAt.select(arriveStation);
     }
 
