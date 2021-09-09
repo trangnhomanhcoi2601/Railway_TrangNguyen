@@ -11,6 +11,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class BaseTests {
+
     @BeforeMethod
     @Parameters("Browser")
     public void beforeMethod(@Optional("chrome.local") String browser) throws Exception {

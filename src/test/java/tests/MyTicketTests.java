@@ -13,6 +13,7 @@ import page_objects.MyTicketPage;
 import page_objects.RegisterPage;
 
 public class MyTicketTests extends BaseTests{
+
     LoginPage loginPage = new LoginPage();
     MyTicketPage myTicketPage = new MyTicketPage();
     RegisterPage registerPage = new RegisterPage();
