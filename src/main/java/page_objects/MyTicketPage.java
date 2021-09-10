@@ -19,6 +19,7 @@ public class MyTicketPage extends BasePage {
 
     public boolean doesTicketDisplay(Ticket ticket) {
         btnCancel.setDynamicValue(ticket.getDepartFrom(), ticket.getArriveAt());
+        btnCancel.waitForDisappear();
         return btnCancel.isVisible();
     }
 }

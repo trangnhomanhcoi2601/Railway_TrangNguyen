@@ -1,5 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Suite" verbose="1">
+    <parameter name="Browser" value="chrome.local"></parameter>
     <test name="SeleniumRailway">
         <classes>
             <class name="tests.BaseTests"></class>

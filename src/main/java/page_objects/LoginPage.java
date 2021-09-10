@@ -36,6 +36,7 @@ public class LoginPage extends BasePage {
     public void login(String user, String password) {
         txtUsername.enter(user);
         txtPassword.enter(password);
+        btnLogin.scrollToView();
         btnLogin.click();
     }
 
@@ -45,6 +46,7 @@ public class LoginPage extends BasePage {
             txtUsername.enter(user);
             txtPassword.clear();
             txtPassword.enter(password);
+            btnLogin.scrollToView();
             btnLogin.click();
         }
     }
