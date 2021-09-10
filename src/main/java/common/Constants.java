@@ -9,5 +9,5 @@ public class Constants {
     public static WebDriver WEBDRIVER;
     public static final String USER = "autouser@gmail.com";
     public static final String PASSWORD = "123456789";
-    public static final int WAIT_TIME = 30;
+    public static final int WAITING_TIME = 30;
 }
