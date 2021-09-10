@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite" verbose="1">
+    <parameter name="Browser" value="chrome.local"></parameter>
+    <test name="SeleniumRailway">
+        <classes>
+            <class name="tests.BaseTests"></class>
+            <class name="tests.ContactTests"></class>
+            <class name="tests.ForgotPasswordTests"></class>
+            <class name="tests.LoginTests"></class>
+            <class name="tests.MyTicketTests"></class>
+            <class name="tests.RegisterTests"></class>
+        </classes>
+    </test>
+</suite>

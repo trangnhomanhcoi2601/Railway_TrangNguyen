@@ -1,79 +1,53 @@
 package page_objects;
 
-import helpers.DriverHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import com.logigear.control.common.imp.Button;
+import com.logigear.control.common.imp.Label;
+import com.logigear.control.common.imp.TextBox;
+import com.logigear.control.common.imp.Link;
 
 public class LoginPage extends BasePage {
 
     //Locators
-    private By txtUsername = By.id("username");
-    private By txtPassword = By.id("password");
-    private By btnLogin = By.cssSelector(".form-actions input[value='Login']");
-    private By lblWelcomeUserMessage = By.xpath("//div[@id='banner']/div[@class='account']/strong");
-    private By lblErrorLoginMessage = By.cssSelector("div p[class='message error LoginForm']");
-    private By lblErrorEmailMessage = By.cssSelector(".username [class = 'validation-error']");
-    private By lnkForgotPasswordPage = By.cssSelector("li a[href='/Account/ForgotPassword.cshtml']");
-
-    //Elements
-    private WebElement getTxtUsername() {
-        return DriverHelper.getDriver().findElement(txtUsername);
-    }
-
-    private WebElement getTxtPassword() {
-        return DriverHelper.getDriver().findElement(txtPassword);
-    }
-
-    private WebElement getBtnLogin() {
-        return DriverHelper.getDriver().findElement(btnLogin);
-    }
-
-    private WebElement getLblWelcomeUserMessage() {
-        return DriverHelper.getDriver().findElement(lblWelcomeUserMessage);
-    }
-
-    private WebElement getLblErrorLoginMessage() {
-        return DriverHelper.getDriver().findElement(lblErrorLoginMessage);
-    }
-
-    private WebElement getLblErrorEmailMessage() {
-        return DriverHelper.getDriver().findElement(lblErrorEmailMessage);
-    }
-
-    private WebElement getLnkForgotPasswordPage() {
-        return DriverHelper.getDriver().findElement(lnkForgotPasswordPage);
-    }
+    private TextBox txtUsername = new TextBox("id=username");
+    private TextBox txtPassword = new TextBox("id=password");
+    private Button btnLogin = new Button("css=.form-actions input[value='Login']");
+    private Label lblWelcomeUserMessage = new Label("xpath=//div[@id='banner']/div[@class='account']/strong");
+    private Label lblErrorLoginMessage = new Label("css=div p[class='message error LoginForm']");
+    private Label lblErrorEmailMessage = new Label("css=.username [class = 'validation-error']");
+    private Link lnkForgotPasswordPage = new Link("css=li a[href='/Account/ForgotPassword.cshtml']");
 
     //Methods
     public String getWelcomeUserMessage() {
-        return getLblWelcomeUserMessage().getText();
+        return lblWelcomeUserMessage.getText();
     }
 
     public String getErrorLoginMessage() {
-        return getLblErrorLoginMessage().getText();
+        return lblErrorLoginMessage.getText();
     }
 
     public String getErrorEmailMessage() {
-        return getLblErrorEmailMessage().getText();
+        return lblErrorEmailMessage.getText();
     }
 
     public void clickForgotPasswordLink() {
-        getLnkForgotPasswordPage().click();
+        lnkForgotPasswordPage.click();
     }
 
     public void login(String user, String password) {
-        getTxtUsername().sendKeys(user);
-        getTxtPassword().sendKeys(password);
-        getBtnLogin().click();
+        txtUsername.enter(user);
+        txtPassword.enter(password);
+        btnLogin.scrollToView();
+        btnLogin.click();
     }
 
     public void repeatLogin(String user, String password, int numberOfTimes) {
         for (int i = 0; i < numberOfTimes; i++) {
-            getTxtUsername().clear();
-            getTxtUsername().sendKeys(user);
-            getTxtPassword().clear();
-            getTxtPassword().sendKeys(password);
-            getBtnLogin().click();
+            txtUsername.clear();
+            txtUsername.enter(user);
+            txtPassword.clear();
+            txtPassword.enter(password);
+            btnLogin.scrollToView();
+            btnLogin.click();
         }
     }
 }

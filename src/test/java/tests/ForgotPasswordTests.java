@@ -10,6 +10,7 @@ import page_objects.LoginPage;
 import page_objects.RegisterPage;
 
 public class ForgotPasswordTests extends BaseTests {
+
     ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
     LoginPage loginPage = new LoginPage();
     RegisterPage registerPage = new RegisterPage();

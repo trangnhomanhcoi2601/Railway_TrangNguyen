@@ -1,21 +1,14 @@
 package page_objects;
 
-import helpers.DriverHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import com.logigear.control.common.imp.Label;
 
 public class ContactPage extends BasePage {
 
     //Locators
-    private By lblEmailContact = By.cssSelector("#content a");
-
-    //Elements
-    private WebElement getLblEmailContact() {
-        return DriverHelper.getDriver().findElement(lblEmailContact);
-    }
+    private Label lblEmailContact = new Label("css=#content a");
 
     //Methods
     public String getEmailContact() {
-        return getLblEmailContact().getAttribute("href");
+        return lblEmailContact.getAttribute("href");
     }
 }
